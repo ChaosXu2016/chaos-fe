@@ -1,0 +1,11 @@
+#! /usr/bin/env node
+var program = require('commander')
+var { getVersion, printVersion } = require('../lib/utils')
+
+printVersion()
+
+program.version(getVersion)
+.usage('<command> [options]')
+.command('init', 'create a chaos-cli.json')
+.command('create', 'create a packages')
+.parse(process.argv)

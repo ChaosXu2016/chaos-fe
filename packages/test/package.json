@@ -1,0 +1,23 @@
+{
+  "name": "@chaos/test",
+  "version": "1.0.0",
+  "description": "test packages",
+  "author": "ChaosXu2016 <chaos_hf@yeah.net>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "chaos:init": "chaos init --help",
+    "chaos:create": "chaos create --help"
+  },
+  "devDependencies": {
+    "@chaos/cli": "^1.0.0"
+  }
+}
