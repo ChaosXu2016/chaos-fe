@@ -1,6 +1,6 @@
 {
-  "name": "@chaos/test",
-  "version": "1.0.0",
+  "name": "@chaosxu/test",
+  "version": "0.0.9",
   "description": "test packages",
   "author": "ChaosXu2016 <chaos_hf@yeah.net>",
   "homepage": "",
@@ -18,6 +18,8 @@
     "chaos:create": "chaos create --help"
   },
   "devDependencies": {
-    "@chaos/cli": "^1.0.0"
-  }
+    "@chaos/cli": "^0.0.8"
+  },
+  "private": true,
+  "gitHead": "2f4e1c85ecb11827a276a750ce16aa2291b69e9d"
 }

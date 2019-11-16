@@ -7,6 +7,10 @@
 ### 命令
 
 + lerna publish  
+
+  `lerna`的包使用的是[scope packages](https://docs.npmjs.com/misc/scope.html)  
+  `scope packages`的`scope`可以是用户名或者是组织名
+
 + lerna version  
 
   查看版本信息
@@ -21,7 +25,10 @@
 
 + lerna changed
 + lerna diff
-+ lerna exec
++ lerna exec  
+
+  > Execute an arbitrary command in each package
+
 + lerna run  
 
   相当于所有子包执行`npm run <command>`
