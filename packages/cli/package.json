@@ -1,6 +1,6 @@
 {
-  "name": "@chaos/cli",
-  "version": "0.0.8",
+  "name": "@chaosxu/cli",
+  "version": "0.0.9",
   "description": "chaos-fe cli",
   "keywords": [
     "cli"
@@ -40,5 +40,5 @@
     "access": "public"
   },
   "private": false,
-  "gitHead": "ee0a9debfe8b13970d333ec62631b058ced1e430"
+  "gitHead": "09dd33fb2fcea6dd61cb1034ba4e39c5dbcc6195"
 }
