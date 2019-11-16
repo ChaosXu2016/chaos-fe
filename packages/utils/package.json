@@ -1,6 +1,6 @@
 {
   "name": "@chaos/utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "chaos-fe utils",
   "author": "ChaosXu2016 <chaos_hf@yeah.net>",
   "homepage": "",
@@ -17,5 +17,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json -d",
     "start": "tsc -p tsconfig.json -d -w"
-  }
+  },
+  "private": true,
+  "gitHead": "2f4e1c85ecb11827a276a750ce16aa2291b69e9d"
 }
