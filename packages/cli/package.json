@@ -1,6 +1,6 @@
 {
   "name": "@chaos/cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "chaos-fe cli",
   "keywords": [
     "cli"
@@ -24,7 +24,7 @@
     "chaos": "bin/chaos"
   },
   "devDependencies": {
-    "@chaos/utils": "^0.0.2",
+    "@chaos/utils": "^0.0.3",
     "@types/chalk": "^2.2.0",
     "@types/fs-extra": "^8.0.1",
     "@types/inquirer": "^6.5.0",
@@ -36,6 +36,6 @@
     "mustache": "^3.1.0",
     "ora": "^4.0.3"
   },
-  "private": true,
+  "private": false,
   "gitHead": "2f4e1c85ecb11827a276a750ce16aa2291b69e9d"
 }
