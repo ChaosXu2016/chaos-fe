@@ -1,6 +1,6 @@
 {
   "name": "@chaos/utils",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "chaos-fe utils",
   "author": "ChaosXu2016 <chaos_hf@yeah.net>",
   "homepage": "",
@@ -22,5 +22,5 @@
     "access": "public"
   },
   "private": false,
-  "gitHead": "7ab8be9f1d1b28ec7d63fb4184565281c5485f1c"
+  "gitHead": "ee0a9debfe8b13970d333ec62631b058ced1e430"
 }
