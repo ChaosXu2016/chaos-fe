@@ -36,6 +36,9 @@
     "mustache": "^3.1.0",
     "ora": "^4.0.3"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "private": false,
-  "gitHead": "37461847cdbaa1a916f03672b1dcec86d8b5183a"
+  "gitHead": "187c8793e6cfa1b0f82362c274abc49a3775bef6"
 }
