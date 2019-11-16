@@ -1,6 +1,6 @@
 {
   "name": "@chaos/cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "chaos-fe cli",
   "keywords": [
     "cli"
@@ -24,7 +24,7 @@
     "chaos": "bin/chaos"
   },
   "devDependencies": {
-    "@chaos/utils": "^0.0.3",
+    "@chaos/utils": "^0.0.4",
     "@types/chalk": "^2.2.0",
     "@types/fs-extra": "^8.0.1",
     "@types/inquirer": "^6.5.0",
