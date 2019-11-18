@@ -24,7 +24,7 @@
   "bin": {
     "chaos": "bin/chaos"
   },
-  "devDependencies": {
+  "dependencies": {
     "@types/chalk": "^2.2.0",
     "@types/fs-extra": "^8.0.1",
     "@types/inquirer": "^6.5.0",
