@@ -17,6 +17,4 @@ const {
   dest
 } = program
 
-console.log('chaos:debugger:', JSON.stringify({ packageName, configPath, src, dest }))
-
 create({ packageName, configPath, src, dest })
