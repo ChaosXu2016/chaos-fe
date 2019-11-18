@@ -6,18 +6,29 @@
 
 ### 命令
 
-+ lerna publish  
+#### lerna publish  
+
+  > Publish packages in the current project
 
   `lerna`的包使用的是[scope packages](https://docs.npmjs.com/misc/scope.html)  
-  `scope packages`的`scope`可以是用户名或者是组织名
+  
+  `scope`名并不是随便起的，他和包名不一样，必须要是一个用户民或者一个组织名（Each npm user/organization has their own scope, and only you can add packages in your scope）  
 
-+ lerna version  
+  `lerna`不会发布在`package.json`中配置`private: true`的包
+
+  其他的选项可以参考[文档](https://github.com/lerna/lerna/tree/master/commands/publish#readme)
+
+#### lerna version  
 
   查看版本信息
 
-+ lerna bootstrap
+#### lerna bootstrap
 
-  安装依赖
+`link`所有的本地包和安装其它依赖包：  
+当执行`lerna bootstrap`，主要发生下面的操作：  
+1. `npm install` 安装所有外部依赖
+2. 给所有的`lerna`包建立链接
+3. 
 
 + lerna list  
 
