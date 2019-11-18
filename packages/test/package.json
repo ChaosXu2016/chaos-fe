@@ -18,7 +18,7 @@
     "chaos:create": "chaos create --help"
   },
   "devDependencies": {
-    "@chaos/cli": "^0.0.8"
+    "@chaosxu/cli": "0.0.9"
   },
   "private": true,
   "gitHead": "2f4e1c85ecb11827a276a750ce16aa2291b69e9d"
