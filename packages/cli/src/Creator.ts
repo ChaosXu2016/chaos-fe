@@ -44,7 +44,7 @@ export default class Creator {
     }
   }
   async copy(): Promise<any> {
-    const { src, dest,  } = this.options
+    const { src, dest } = this.options
     return createPackages(src, dest, this.filter)
   }
   async compile(): Promise<any> {
