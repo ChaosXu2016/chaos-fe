@@ -15,8 +15,6 @@ export type Options = {
   dest: string
   packageName: string
   commands: Command[]
-  compileFiles: string[]
-  copyOptions: fs.CopyOptions
 }
 
 const asyncExec = (command: string, options: any) => new Promise((resolve, reject) => {
@@ -37,6 +35,7 @@ export default class Creator {
     this.view = view
   }
   filter: copyFilter = (fileName, fileContent) => {
+    const { } = this.options
     const content = Mustache.render(fileContent, this.view)
     return {
       fileName: fileName.replace(/\.mustache$/g, ''),
@@ -46,19 +45,6 @@ export default class Creator {
   async copy(): Promise<any> {
     const { src, dest } = this.options
     return createPackages(src, dest, this.filter)
-  }
-  async compile(): Promise<any> {
-    const { compileFiles } = this.options
-    const compileSpinner = ora(`正在注入参数...`).start()
-    return Promise.all(compileFiles.map(this.renderFile.bind(this))).then(() => {
-      compileSpinner.color = 'green'
-      compileSpinner.succeed(chalk.green('编译成功！'))
-    }).catch(error => {
-      compileSpinner.color = 'red'
-      compileSpinner.fail(chalk.red('编译失败！'))
-      console.log(error)
-      return Promise.reject(error)
-    })
   }
   async renderFile(filePath: string): Promise<any> {
     if(fs.existsSync(filePath)) {
@@ -87,7 +73,6 @@ export default class Creator {
   }
   async create() {
     await this.copy()
-    await this.compile()
     await this.exeCommand()
     console.log(chalk.green(`创建成功！`))
     console.log(chalk.green(`开始工作吧！😝`))

@@ -11,10 +11,6 @@ const DEFAULT_CONFIG = (
   }, {
     "command": "lerna bootstrap"
   }],
-  "compileFiles": [ "package.json" ],
-  "copyOptions": {
-    "overwrite": false
-  },
   "questions": [{
     "name": "packageName",
     "message": "package name"
