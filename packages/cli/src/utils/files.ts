@@ -98,7 +98,7 @@ const copy = async (source: string, target: string, filter?: copyFilter): Promis
 const defaultCopyFilter: copyFilter = (fileName, fileContent) => {
   return {
     fileContent,
-    fileName: fileName.replace(/\.temp$/, '')
+    fileName: fileName.replace(/\.mustache$/, '')
   }
 }
 

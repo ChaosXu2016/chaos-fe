@@ -39,7 +39,7 @@ export default class Creator {
   filter: copyFilter = (fileName, fileContent) => {
     const content = Mustache.render(fileContent, this.view)
     return {
-      fileName: fileName.replace(/\.temp$/g, ''),
+      fileName: fileName.replace(/\.mustache$/g, ''),
       fileContent: content
     }
   }
