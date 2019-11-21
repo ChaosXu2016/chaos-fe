@@ -3,6 +3,7 @@ import * as chalk from 'chalk'
 import * as Mustache from 'mustache'
 import * as ora from 'ora'
 import { exec } from 'child_process'
+import { createPackages, copyFilter } from './utils/files'
 
 export type Command = {
   command: string
@@ -32,25 +33,19 @@ export default class Creator {
   private options: Options
   private view: any
   constructor(options: Options, view: any) {
-    console.log(JSON.stringify(options))
-    console.log(JSON.stringify(view))
     this.options = options
     this.view = view
   }
+  filter: copyFilter = (fileName, fileContent) => {
+    const content = Mustache.render(fileContent, this.view)
+    return {
+      fileName: fileName.replace(/\.temp$/g, ''),
+      fileContent: content
+    }
+  }
   async copy(): Promise<any> {
-    const { src, dest, copyOptions } = this.options
-    const copySpinner = ora(`正在复制模板...`).start()
-    return fs.copy(src, dest, copyOptions).then(() => {
-      copySpinner.color = 'green'
-      console.log(`${chalk.green('temlate：')}${chalk.gray(src)}`)
-      console.log(`${chalk.green('target：')}${chalk.gray(dest)}`)
-      copySpinner.succeed(chalk.green('模板拷贝成功！'))
-    }).catch(error => {
-      copySpinner.color = 'red'
-      copySpinner.fail(chalk.red('模板拷贝失败！'))
-      console.log(error)
-      return Promise.reject(error)
-    })
+    const { src, dest,  } = this.options
+    return createPackages(src, dest, this.filter)
   }
   async compile(): Promise<any> {
     const { compileFiles } = this.options
