@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "chaos:init": "chaos init --help",
-    "chaos:create": "chaos create service"
+    "chaos:create": "rm -rf ./packages/* && chaos create service"
   },
   "devDependencies": {
     "@chaosxu/cli": "^0.0.17"

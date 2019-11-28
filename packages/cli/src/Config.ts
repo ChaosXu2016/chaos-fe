@@ -1,5 +1,6 @@
 import * as path from 'path'
 import { Options } from './Creator'
+import { DEFAULT_CONFIG_FILE } from './utils/constant'
 
 export type CmdOptions = {
   packageName: string
@@ -9,7 +10,6 @@ export type CmdOptions = {
 }
 
 export default class Config {
-  static DEFAULT_CONFIG_PATH = 'chaos-cli.json'
   config: Options
   questions: any[]
   constructor(cmdOptions: CmdOptions) {
@@ -19,15 +19,16 @@ export default class Config {
   }
   getConfig(cmdOptions: CmdOptions) {
     let { configPath, packageName, src, dest } = cmdOptions
-    configPath = path.join(process.cwd(), configPath || Config.DEFAULT_CONFIG_PATH)
+    configPath = path.join(process.cwd(), configPath || DEFAULT_CONFIG_FILE)
     const config = require(configPath) || {}
     const questions = config.questions
-    src = path.join(process.cwd(), src || config.src || '')
+    src = src || config.src
+    src = src && path.join(process.cwd(), src)
     dest = path.join(process.cwd(), dest || config.dest || '', packageName)
     const compileFiles = (config.compileFiles || []).map((p: string) => path.join(dest, p))
     
     return {
-      config: { 
+      config: {
         src,
         dest,
         packageName,

@@ -1,16 +1,17 @@
-const download = require('download-git-repo')
+import * as download from 'download-git-repo'
+import { success, fail, IResult } from './result'
 
-export default (src: string): Promise<any> => {
-  return new Promise((resolve, reject) => {
+export default (src: string, target: string): Promise<IResult> => {
+  return new Promise(resolve => {
     download(
       src,
-      'template/',
+      target,
       { clone: false },
       err => {
         if(err) {
-          reject(false)
+          resolve(fail(err, `拉取模板：${src} 失败`))
         } else {
-          resolve(true)
+          resolve(success(null, `拉取模板：${src} 成功`))
         }
       }
     )

@@ -3,7 +3,7 @@ import * as chalk from 'chalk'
 import * as Mustache from 'mustache'
 import * as ora from 'ora'
 import { exec } from 'child_process'
-import { createPackages, copyFilter } from './utils/files'
+import write, { copyFilter } from './utils/write'
 
 export type Command = {
   command: string
@@ -42,10 +42,6 @@ export default class Creator {
       fileContent: content
     }
   }
-  async copy(): Promise<any> {
-    const { src, dest } = this.options
-    return createPackages(src, dest, this.filter)
-  }
   async renderFile(filePath: string): Promise<any> {
     if(fs.existsSync(filePath)) {
       const file = fs.readFileSync(filePath)
@@ -54,12 +50,15 @@ export default class Creator {
     }
   }
   async exeCommand() {
-    const { commands } = this.options
+    const { commands, dest } = this.options
     while(commands.length) {
       const { command, options } = commands.shift() || { command: '', options: {} }
       const commandSpinner = ora(`正在执行 ${chalk.cyan.bold(command)}, 需要一会儿...`).start()
       try {
-        const { stdout, stderr } = await asyncExec(command, options) as any
+        const { stdout, stderr } = await asyncExec(command, {
+          cwd: dest,
+          ...options
+        }) as any
         commandSpinner.color = 'green'
         commandSpinner.succeed('安装成功')
         console.log(`${stderr}${stdout}`)
@@ -72,7 +71,14 @@ export default class Creator {
     }
   }
   async create() {
-    await this.copy()
+    const { src, dest } = this.options
+    const copyRes = await write(src, dest, this.filter)
+    if(!copyRes.success) {
+      console.log(chalk.red(copyRes.message))
+      copyRes.data && console.log(copyRes.data)
+      return copyRes
+    }
+    console.log(chalk.green(copyRes.message))
     await this.exeCommand()
     console.log(chalk.green(`创建成功！`))
     console.log(chalk.green(`开始工作吧！😝`))

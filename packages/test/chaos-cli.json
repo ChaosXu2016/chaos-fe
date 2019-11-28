@@ -1,10 +1,8 @@
 {
-  "src": "template",
+  "src": "",
   "dest": "packages",
   "commands": [{
-    "command": "lerna link"
-  }, {
-    "command": "lerna bootstrap"
+    "command": "npm install"
   }],
   "compileFiles": [ "package.json" ],
   "copyOptions": {
@@ -19,5 +17,9 @@
   }, {
     "name": "author",
     "message": "author"
+  }, {
+    "type": "multiple",
+    "name": "keywords",
+    "message": "keywords"
   }]
 }
