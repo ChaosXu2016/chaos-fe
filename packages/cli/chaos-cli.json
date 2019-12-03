@@ -1,0 +1,28 @@
+{
+  "src": "template",
+  "dest": ".test",
+  "commands": [],
+  "questions": [{
+    "type": "multiple",
+    "name": "keywords",
+    "message": "keywords"
+  }, {
+    "type": "number",
+    "name": "number",
+    "message": "number"
+  }, {
+    "type": "confirm",
+    "name": "confirm",
+    "message": "confirm"
+  }, {
+    "type": "list",
+    "name": "list",
+    "message": "list",
+    "choices": ["a", "b", "c"]
+  }, {
+    "type": "checkbox",
+    "name": "checkbox",
+    "message": "checkbox",
+    "choices": ["a", "b", "c"]
+  }]
+}

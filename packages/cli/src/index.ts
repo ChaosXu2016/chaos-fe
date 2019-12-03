@@ -44,7 +44,7 @@ const create = async (cmdOptions: CmdOptions) => {
   config.src = path.join(config.src, templateName)
   const view = await ask(questions)
   const create = new Creator(config, view)
-  create.create()
+  return create.create()
 }
 
 export {
