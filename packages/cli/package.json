@@ -8,7 +8,8 @@
   "author": "ChaosXu2016 <chaos_hf@yeah.net>",
   "homepage": "",
   "license": "ISC",
-  "main": "lib/index.js",
+  "main": "index.js",
+  "types": "index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
