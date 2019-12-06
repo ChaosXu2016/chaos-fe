@@ -1,6 +1,6 @@
 {
   "name": "@chaosxu/test",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "test packages",
   "author": "ChaosXu2016 <chaos_hf@yeah.net>",
   "homepage": "",
@@ -18,7 +18,7 @@
     "chaos:create": "rm -rf ./packages/* && chaos create service"
   },
   "devDependencies": {
-    "@chaosxu/cli": "^0.0.18"
+    "@chaosxu/cli": "^0.0.19"
   },
   "private": true,
   "gitHead": "2f4e1c85ecb11827a276a750ce16aa2291b69e9d"
